@@ -10,6 +10,9 @@ echo '
 <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 <title>Flight Map</title>
 
+// ADD YOUR GOOGLE MAPS API KEY HERE FOR EXTERNAL MAP REQUESTS
+/*<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    async defer></script>*/
 <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
 <script>
 var map_types = {
