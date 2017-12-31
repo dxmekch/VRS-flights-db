@@ -42,6 +42,16 @@ Place the files from the windows directory of this repository in your c:\sqlite 
 - db_query.vbs
 - dbquerycommands.txt
 
+###Linux scripts
+Place the files in your workspace or where else you like.
+- dbquery.sh
+- dbquerycommands.txt
+
+And set the permissions for your bashscript to executable.
+```
+sudo chmod +x dbquery.sh
+```
+
 Double check all the paths in these files, as your setup may differ.
 
 ###PHP scripts
@@ -57,7 +67,11 @@ Enter the following line into the file - this will run the getTrackMlat.php file
 ```
 */1 * * * * /usr/bin/php /srv/www/htdocs/flights/getTrackMlat.php >/dev/null
 ```
-Save the file, and the new crontab will be installed.  After a few minutes, you should observe rows being added to the track_mlat_lookup table in your database.
+Enter the following line into the file - this will run the dbquery.sh file every 15 minutes (00/15/30/45) and continously add the log to the logfile.
+```
+0*/15 * * * * /path/to/dbquery.sh >> /path/to/log/dbquery_output.log 2>&1
+```
+Save the file, and the new crontabs will be installed.  After a few minutes, you should observe rows being added to the track_mlat_lookup table in your database.
 
 ###PuTTY Setup on Windows
 First, configure Pageant for password-less authentication to your web server as discussed in the prereqs section.
